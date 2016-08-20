@@ -1,0 +1,13 @@
+admin:
+  image: enmobile/docker-spring-boot-admin
+  ports:
+    - 8123:8123
+    
+rest:
+  image: alitari/spring-rest
+  ports:
+    - 9001:9001
+  environment:
+    - DOCKER_HOST_IP=${DOCKER_HOST_IP}
+  links:
+    - admin
